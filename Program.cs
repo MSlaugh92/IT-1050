@@ -1,60 +1,64 @@
 ﻿using System;
 
+namespace Assignment2
 
-namespace Assignment1
 {
+
     class Program
+
     {
+
         static void Main(string[] args)
+
         {
-            //Concatenation
 
-            Console.Write("First Name? --> ");
-            string firstName = Console.ReadLine();
+            Person p1 = new Person();
 
-            Console.Write("Middle Name? --> ");
-            string middleName = Console.ReadLine();
-
-            Console.Write("Last Name? --> ");
-            string lastName = Console.ReadLine();
-
-            string fullName = (firstName + " " + middleName + " " + lastName);
-
-            
-            //Arithmetic Expression
-            
-            Console.Write("What is you age? --> ");
-            int age = int.Parse(Console.ReadLine());
-
-            Console.Write("What is your height in feet? --> ");
-            int baseFeet = int.Parse(Console.ReadLine());
-
-            Console.Write("What is your height in inches? --> ");
-            double extraInches = double.Parse(Console.ReadLine());
-
-            const double multiplier = 2.54;
-            const int inchesPerFoot = 12;
-
-            double inches = (baseFeet * inchesPerFoot) + extraInches;
-            double heightCM = inches * multiplier;
+            Person p2 = new Person();
 
 
-            //Boolean Expression
 
-            Console.Write("Are you a US citizen(true or false)? --> ");
-            bool isCitizen = bool.Parse(Console.ReadLine());
+            Console.WriteLine("\n[ Enter Information for Person 1 ]");
 
-            bool canVote = (age >= 18) && isCitizen;
+            Person.GetPersonInfo(p1);
 
 
-            Console.WriteLine("Your full name is: '" + fullName + "'.");
-            Console.WriteLine("Your height in CM is: '" + heightCM + "'.");
-            Console.WriteLine("Your voter eligibility is: '" + canVote + "'.");
-            Console.WriteLine("Press any key to exit");
-           
-            
-            
+
+            Console.WriteLine("\n[ Enter Information for Person 2 ]");
+
+            Person.GetPersonInfo(p2);
+
+
+
+            Console.WriteLine("[ Printing Results ]\n");
+
+            p1.PrintNameAndAge();
+
+            p1.spouse.PrintNameAndAge();
+
+            p2.PrintNameAndAge();
+
+            p2.spouse.PrintNameAndAge();
+
+
+
+
+
+            Person.sumOfAllAges = (p1.age + p2.age + p1.spouse.age + p2.spouse.age);
+
+            int personQuantity = 4;
+
+
+
+            Console.WriteLine("\nAverage Age: " + Person.sumOfAllAges / personQuantity);
+
+
+
             Console.ReadKey();
-            }
+
+        }
+
     }
+
 }
+
