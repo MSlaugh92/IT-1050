@@ -1,6 +1,9 @@
-﻿using System;
+﻿
+using System;
 
-namespace Assignment2
+
+
+namespace Assignment3
 
 {
 
@@ -12,45 +15,43 @@ namespace Assignment2
 
         {
 
-            Person p1 = new Person();
+            Instructor John = new Instructor("John", "English");
 
-            Person p2 = new Person();
-
-
-
-            Console.WriteLine("\n[ Enter Information for Person 1 ]");
-
-            Person.GetPersonInfo(p1);
+            Instructor Mike = new Instructor("Mike", "Math");
 
 
 
-            Console.WriteLine("\n[ Enter Information for Person 2 ]");
+            Student Jane = new Student("Jane", John);
 
-            Person.GetPersonInfo(p2);
-
-
-
-            Console.WriteLine("[ Printing Results ]\n");
-
-            p1.PrintNameAndAge();
-
-            p1.spouse.PrintNameAndAge();
-
-            p2.PrintNameAndAge();
-
-            p2.spouse.PrintNameAndAge();
+            Student Joe = new Student("Joe", John);
 
 
 
+            Student Melissa = new Student("Melissa", Mike);
 
-
-            Person.sumOfAllAges = (p1.age + p2.age + p1.spouse.age + p2.spouse.age);
-
-            int personQuantity = 4;
+            Student Matt = new Student("Matt", Mike);
 
 
 
-            Console.WriteLine("\nAverage Age: " + Person.sumOfAllAges / personQuantity);
+            John.SetStudentGrade(Jane, 95);
+
+            John.SetStudentGrade(Joe, 85);
+
+
+
+            Mike.SetStudentGrade(Melissa, 90);
+
+            Mike.SetStudentGrade(Matt, 92);
+
+
+
+            Jane.Print();
+
+            Joe.Print();
+
+            Melissa.Print();
+
+            Matt.Print();
 
 
 
@@ -61,4 +62,3 @@ namespace Assignment2
     }
 
 }
-
